@@ -2,14 +2,15 @@
 	"name": "PDF Handler",
 	"author": [
 		"Martin Seidel",
-		"Mike Połtyn"
+		"Mike Połtyn",
+                "Xiangru Lian"
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:PdfHandler",
 	"descriptionmsg": "pdf-desc",
 	"license-name": "GPL-2.0-or-later",
 	"type": "media",
 	"requires": {
-		"MediaWiki": ">= 1.32.0"
+		"MediaWiki": ">= 1.27.0"
 	},
 	"config": {
 		"PdfOutputExtension": "jpg",
@@ -27,23 +28,17 @@
 		]
 	},
 	"Hooks": {
-		"UploadVerifyFile": [
-			"CreatePdfThumbnailsJob::insertJobs"
-		],
 		"ResourceLoaderRegisterModules": [
 			"PdfHandler::registerWarningModule"
 		]
-	},
-	"JobClasses": {
-		"createPdfThumbnailsJob": "CreatePdfThumbnailsJob"
 	},
 	"MediaHandlers": {
 		"application/pdf": "PdfHandler"
 	},
 	"AutoloadClasses": {
 		"PdfImage": "includes/PdfImage.php",
-		"PdfHandler": "includes/PdfHandler.php",
-		"CreatePdfThumbnailsJob": "includes/CreatePdfThumbnailsJob.php"
+		"PdfTransformOutput": "includes/PdfTransformOutput.php",
+		"PdfHandler": "includes/PdfHandler.php"
 	},
 	"manifest_version": 1
 }
